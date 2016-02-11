@@ -1,21 +1,12 @@
 var prompt = require ('prompt-sync').prompt;
  
- console.log('What');
-
- var info=prompt();
- console.log(info);
 
 var answer;
 var number_correct = 0;
 var start_time, stop_time;
+var minutes, seconds;
 
 start_time = Date.now();
-
-
-stop_time = Date.now();
-
-console.log ("timer value");
-console.log (stop_time-start_time);
 
 
 // Question Number 1
@@ -313,11 +304,14 @@ if (answer.toLowerCase() === "combinator") {
 
 stop_time = Date.now();
 
+minutes = Math.floor((stop_time - start_time)/60000);
+seconds = ((stop_time - start_time) / 1000 ) % 60;
+
 console.log("Thank you: You got " + number_correct + " correct out of 15.");
-console.log("That is a grade of " + number_correct/15 + "%.");
+console.log("That is a grade of " + Math.floor(number_correct/15 *100)+ "%.");
 
 
-console.log ("It took " (stop_time-start_time)/60000 + " minutes to take this quiz.");
+console.log ("It took " + minutes + " minutes and " + Math.floor(seconds) +" seconds to take this quiz.");
 
 
 
